@@ -1,0 +1,21 @@
+FUNCTION isPalindrome(str:STRING, first,end:INTEGER) : BOOLEAN
+VAR
+ first : INTEGER :=str[0];
+ end:INTEGER:=str.length-1;
+
+BEGIN
+    IF (str.length=1 OR str.length=0) THEN  //if it's a single char string or an empty word => it's a palindrome=>return true
+        RETURN TRUE;
+    END_IF
+
+    IF (str[0]<>str[str.length-1]) THEN // if the first an the last character do not match=> return false
+    
+        RETURN FALSE;
+    END_IF
+
+    IF (first<end+1) THEN //if str is more than 2 character check the substrings if they are palindrome
+        RETURN isPalindrome(str, first+1, end-1 );
+    END_IF
+
+
+END
